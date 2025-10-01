@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulačka hmotnosti šperku</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>Výpočet hmotnosti šperku</h1>
+
+    <label>Fotka šperku (PNG s priehľadným pozadím):</label>
+    <div id="drop-zone">
+      Pretiahni sem obrázok alebo klikni
+      <input type="file" id="imageInput" accept="image/*">
+    </div>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <img id="preview" alt="náhľad obrázka">
+
+    <label>Výška (mm): <input type="number" id="height" placeholder="Zadaj výšku"></label>
+    <label>Šírka (mm): <input type="number" id="width" placeholder="Zadaj šírku"></label>
+    <label>Hrúbka (mm): <input type="number" id="thickness" placeholder="Zadaj hrúbku"></label>
+
+    <label>Materiál:
+      <select id="material" onchange="toggleKaratOptions()">
+        <option value="gold">Zlato</option>
+        <option value="silver">Striebro</option>
+      </select>
+    </label>
+
+    <div id="karat-container">
+      <label>Rýdzosť zlata:
+        <select id="karat">
+          <option value="9">9k</option>
+          <option value="14" selected>14k</option>
+          <option value="18">18k</option>
+          <option value="24">24k</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="result-box">
+      <h2 id="result">Váha: -</h2>
+      <p id="gold-price"></p>
+      <p id="silver-price"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
